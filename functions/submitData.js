@@ -11,7 +11,7 @@ exports.handler = async function(event, context) {
     const selectedWordsStats = JSON.parse(event.body);
 
     try {
-        const response = await fetch(`https://api.github.com/repos/${githubUsername}/${githubRepo}/contents/${dataFilePath}`, {
+        const response = await fetch(`https://api.github.com/repos/pegah-kh/Human_Evaluation_concept_explain/contents/data.json`, {
             headers: {
                 Authorization: `token ${githubToken}`
             }
@@ -23,7 +23,7 @@ exports.handler = async function(event, context) {
 
         const updatedContent = btoa(JSON.stringify(jsonData, null, 2));
 
-        const result = await fetch(`https://api.github.com/repos/${githubUsername}/${githubRepo}/contents/${dataFilePath}`, {
+        const result = await fetch(`https://api.github.com/repos/pegah-kh/Human_Evaluation_concept_explain/contents/data.json`, {
             method: 'PUT',
             headers: {
                 Authorization: `token ${githubToken}`,
