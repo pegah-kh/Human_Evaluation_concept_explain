@@ -1,0 +1,17 @@
+{
+  "name": "human_evaluation_concept_explain",
+  "version": "1.0.0",
+  "description": "[![Netlify Status](https://api.netlify.com/api/v1/badges/de4a0350-8308-4425-a739-fa6c73943d05/deploy-status)](https://app.netlify.com/sites/precious-bombolone-0885ed/deploys)",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "atob": "^2.1.2",
+    "btoa": "^1.2.1",
+    "node-fetch": "^3.3.2"
+  }
+}
