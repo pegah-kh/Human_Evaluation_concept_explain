@@ -1,4 +1,3 @@
-const fetch = require('node-fetch');
 const atob = require('atob');
 const btoa = require('btoa');
 
@@ -11,6 +10,9 @@ exports.handler = async function(event, context) {
     const selectedWordsStats = JSON.parse(event.body);
 
     try {
+        // Use dynamic import for node-fetch
+        const fetch = await import('node-fetch').then(mod => mod.default);
+
         const response = await fetch(`https://api.github.com/repos/${githubUsername}/${githubRepo}/contents/${dataFilePath}`, {
             headers: {
                 Authorization: `token ${githubToken}`
