@@ -8,5 +8,15 @@
     "image": "images/COCO_val2014_000000000241.jpg",
     "specificCount": 1,
     "randomCount": 1
+  },
+  {
+    "image": "images/COCO_val2014_000000000208.jpg",
+    "specificCount": 3,
+    "randomCount": 2
+  },
+  {
+    "image": "images/COCO_val2014_000000000241.jpg",
+    "specificCount": 2,
+    "randomCount": 3
   }
 ]
