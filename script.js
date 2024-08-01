@@ -1,8 +1,8 @@
 // List of images and words
 const images = [
     // Add your image URLs here
-    '/Users/pegahkhayatan/Desktop/Human_Evaluation/images/COCO_val2014_000000000208.jpg', 
-    '/Users/pegahkhayatan/Desktop/Human_Evaluation/images/COCO_val2014_000000000241.jpg', // ...
+    'images/COCO_val2014_000000000208.jpg', 
+    'images/COCO_val2014_000000000241.jpg', // ...
 ];
 
 const poolOfRandomWords = [
@@ -11,8 +11,8 @@ const poolOfRandomWords = [
 ];
 
 const imageSpecificWords = {
-    '/Users/pegahkhayatan/Desktop/Human_Evaluation/images/COCO_val2014_000000000208.jpg': ['specific1-1', 'specific1-2', 'specific1-3', 'specific1-4', 'specific1-5'],
-    '/Users/pegahkhayatan/Desktop/Human_Evaluation/images/COCO_val2014_000000000241.jpg': ['specific2-1', 'specific2-2', 'specific2-3', 'specific2-4', 'specific2-5'],
+    'images/COCO_val2014_000000000208.jpg': ['specific1-1', 'specific1-2', 'specific1-3', 'specific1-4', 'specific1-5'],
+    'images/COCO_val2014_000000000241.jpg': ['specific2-1', 'specific2-2', 'specific2-3', 'specific2-4', 'specific2-5'],
     // Add specific words for each image
 };
 
