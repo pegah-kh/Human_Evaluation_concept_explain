@@ -1,0 +1,12 @@
+[
+  {
+    "image": "images/COCO_val2014_000000000208.jpg",
+    "specificCount": 2,
+    "randomCount": 0
+  },
+  {
+    "image": "images/COCO_val2014_000000000241.jpg",
+    "specificCount": 1,
+    "randomCount": 1
+  }
+]
