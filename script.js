@@ -15,11 +15,11 @@ const imageSpecificWords = {
     'images/COCO_val2014_000000000241.jpg': ['specific2-1', 'specific2-2', 'specific2-3', 'specific2-4', 'specific2-5'],
     // Add specific words for each image
 };
-
-function createWordElement(word, imageItem) {
+function createWordElement(word, imageItem, isSpecific) {
     const wordElement = document.createElement('span');
     wordElement.className = 'word';
     wordElement.textContent = word;
+    wordElement.dataset.specific = isSpecific; // Track if the word is specific to the image
     wordElement.onclick = () => {
         const selectedWords = imageItem.querySelectorAll('.word.selected');
         if (wordElement.classList.contains('selected')) {
@@ -48,7 +48,8 @@ function createImageItem(imageSrc, specificWords) {
     const words = specificWords.concat(randomWords).sort(() => 0.5 - Math.random());
 
     words.forEach(word => {
-        const wordElement = createWordElement(word, item);
+        const isSpecific = specificWords.includes(word);
+        const wordElement = createWordElement(word, item, isSpecific);
         wordsContainer.appendChild(wordElement);
     });
 
@@ -64,9 +65,6 @@ function populateImages() {
         container.appendChild(imageItem);
     });
 }
-
-
-
 
 function submitEvaluation() {
     const selectedWordsStats = images.map(image => ({
