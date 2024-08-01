@@ -65,20 +65,44 @@ function populateImages() {
     });
 }
 
+
+
+
 function submitEvaluation() {
-    const selectedWords = [];
-    document.querySelectorAll('.image-item').forEach(imageItem => {
-        const imageWords = [];
-        imageItem.querySelectorAll('.word.selected').forEach(wordElement => {
-            imageWords.push(wordElement.textContent);
-        });
-        selectedWords.push({
-            image: imageItem.querySelector('img').src,
-            words: imageWords
+    const selectedWordsStats = images.map(image => ({
+        image: image,
+        specificCount: 0,
+        randomCount: 0
+    }));
+
+    document.querySelectorAll('.image-item').forEach((imageItem, index) => {
+        const selectedWords = imageItem.querySelectorAll('.word.selected');
+        selectedWords.forEach(wordElement => {
+            if (wordElement.dataset.specific === "true") {
+                selectedWordsStats[index].specificCount++;
+            } else {
+                selectedWordsStats[index].randomCount++;
+            }
         });
     });
-    console.log('Selected Words:', selectedWords);
-    alert('Evaluation Submitted! Check the console for selected words.');
+
+    console.log('Selected Words Stats:', selectedWordsStats);
+
+    fetch('/.netlify/functions/submitData', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(selectedWordsStats)
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log('Submission successful:', data);
+        alert('Evaluation Submitted!');
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
 }
 
 window.onload = populateImages;
